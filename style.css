@@ -1,0 +1,323 @@
+/* html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+ HTML5 display-role reset for older browsers 
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}  */
+
+body{
+    background-color: rgb(233, 223, 255);
+    font-family: 'Open sans', sans-serif;
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 32px;
+    color: rgb(44, 44, 44);
+}
+
+h1{
+    color: rgb(83, 49, 156);
+    font-weight: bold;
+    margin: 32px 0 64px 0;
+}
+
+.container{
+    background-color: white;
+    max-width: 1800px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    padding: 0 64px 64px 64px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.tabs p{
+    text-transform: uppercase;
+    padding: 32px;
+    
+}
+
+.tabs{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    font-weight: bold;
+    color: rgb(200, 175, 255);
+    margin: 0 0 48px 0;
+    
+}
+
+.tabs p:hover{
+    color: rgb(83, 49, 156);
+    cursor: pointer;
+}
+
+.tabs .active{
+    color: rgb(83, 49, 156);
+    position: relative;
+}
+
+.line{
+    height: 4px;
+    background-color: rgb(231, 231, 231);
+    width: 100%;
+    position: absolute;
+    top: 124px;
+}
+
+/* fancy approach, classic approach is with a span positioned based of the active class */
+
+.tabs .active::before{
+    content: "";
+    width: 200%;
+    height: 5px;
+    background-color: rgb(83, 49, 156);
+    position: absolute;
+    bottom:-7px;
+    z-index: 2;
+    border-radius: 10px;
+    left: -50%;
+}
+
+.toggle-wrapper{
+    display: flex;
+
+}
+
+.toggle-wrapper img{
+    height: 48px;
+    margin: 0 16px;
+}
+
+.toggle{
+    box-sizing: border-box;
+    background-color: rgb(83, 49, 156);
+    width: 180px;
+    height: 48px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 4px 0 16px;
+    align-items: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.toggle span:first-of-type{
+    color: white;
+}
+
+.toggle span:last-of-type{
+    background-color: white;
+    color: rgb(83, 49, 156);
+    padding: 4px 16px;
+    border-radius: 20px;
+}
+
+.card{
+    background-color: rgb(250, 247, 255);
+    text-align: center;
+    padding: 32px;
+    width: 50%;
+    text-transform: uppercase;
+    margin: 16px 0;
+    border-radius: 10px;
+}
+
+.card p{
+    color: rgb(44, 44, 44);
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.card .number{
+    color: rgb(83, 49, 156);
+    font-size: 64px;
+    margin: 0;
+}
+
+.description{
+    line-height: 24px;
+    margin: 16px 0 32px 0;
+}
+
+.slider{
+    width: 100%;
+    position: relative;
+}
+
+.slider .bar{
+    width: 100%;
+    height: 18px;
+    background-color: rgb(248, 248, 248);
+    border: 1px solid rgb(210, 210, 210);
+    border-radius: 20px;
+}
+
+.slider .progress{
+    width: 31%;
+    height: 20px;
+    background: linear-gradient(
+        90deg,
+        rgba(2, 0, 36, 1) 0%,
+        rgba(53, 10, 74, 1) 36%,
+        rgba(83, 49, 156, 1) 100%
+    );
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.slider .point{
+    height: 32px;
+    width: 32px;
+    background-color: rgb(83, 49, 156);
+    border-radius: 50%;
+    position: absolute;
+    top: -7px;
+    left: 30%;
+    border: 3px solid white;
+    transition: 0.15s transform ease;
+}
+
+.slider .point:hover{
+    cursor: pointer;
+    transform: scale(1.15);
+}
+
+.scale{
+    width: 100%;
+}
+
+.slider .scale ul{
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    font-weight: bold;
+    color: rgb(166, 166, 166);
+}
+
+.card-wrapper{
+    display: flex;
+}
+
+.cards{
+    background-color: rgb(250, 247, 255);
+    border-radius: 10px;
+    margin: 48px;
+    box-shadow: 0px 3px 11px 1px rgba(0,0,0,0.1);
+    padding: 16px 32px;
+    text-align: center;
+    font-weight: bold;
+    color: rgb(83, 49, 156);
+    transition: 0.15s transform ease;
+    position: relative;
+}
+
+.cards:hover{
+    transform: translateY(-8px);
+}
+
+.cards .top-section{
+    padding: 16px;
+    text-transform: uppercase;
+    margin-top: 24px;
+}
+
+.cards .top-section p{
+    margin: 4px 0;
+}
+
+.cards .price{
+    font-size: 42px;
+    color: rgb(44, 44, 44);
+}
+
+.cards hr{
+    width: 30%;
+    border: 1px solid rgb(210, 210, 210);
+    border-radius: 2px;
+}
+
+.cards button{
+    border: none;
+    color: white;
+    background-color: rgb(83, 49, 156);
+    padding: 24px;
+    border-radius: 10px;
+    font-size: 28px;
+    margin-top: 12px;
+    transition: 0.15s transform ease;
+    font-weight: bold;
+    margin: 8px 0;
+}
+
+.cards button:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+.cards .save{
+    color: white;
+    background: linear-gradient(
+        90deg,
+        rgba(2, 0, 36, 1) 0%,
+        rgba(53, 10, 74, 1) 36%,
+        rgba(83, 49, 156, 1) 100%
+    );
+    position: absolute;
+    top: -32px;
+    left: 0;
+    width: 100%;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
